@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"/>
+
+    <fragment
+        android:id="@+id/fragDataEntry"
+        android:name="com.mobileapps.week3day3hw_fragments.Fragments.DataEntryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+    <fragment
+        android:id="@+id/fragListing"
+        android:name="com.mobileapps.week3day3hw_fragments.Fragments.ListingFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+
+    <FrameLayout
+        android:id="@+id/fragmentHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+</LinearLayout>

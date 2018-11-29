@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Week3Day3HW-Fragments</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="ok">OK</string>
+    <string name="done">Done</string>
+    <string name="enter_new_user">ENTER NEW USER</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="skype_id">Skype ID</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_user">Add User</string>
+
+</resources>
