@@ -3,24 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="300dp"
     android:orientation="vertical"
     tools:context=".Fragments.DataEntryFragment">
 
+<!--
     <TextView
         android:id="@+id/tvDisplayStatus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/enter_new_user"
         android:gravity="center"
         android:textSize="20sp"/>
-
+-->
     <EditText
         android:id="@+id/etFirstName"
         android:inputType="text"
         android:hint="@string/first_name"
         android:autofillHints="@string/first_name"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -28,7 +29,7 @@
         android:inputType="text"
         android:hint="@string/last_name"
         android:autofillHints="@string/last_name"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -36,7 +37,7 @@
         android:inputType="phone"
         android:hint="@string/phone_number"
         android:autofillHints="@string/phone_number"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -44,7 +45,7 @@
         android:inputType="textEmailAddress"
         android:hint="@string/email_address"
         android:autofillHints="@string/email_address"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -52,14 +53,13 @@
         android:inputType="text"
         android:hint="@string/skype_id"
         android:autofillHints="@string/skype_id"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnAddUser"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
         android:text="@string/add_user" />
 
 

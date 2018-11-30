@@ -25,6 +25,8 @@ import com.mobileapps.week3day3hw_fragments.R;
 public class ListingFragment extends Fragment implements View.OnClickListener{
 
     public static final String TAG = ListingFragment.class.getSimpleName();
+    public static final String RECV_FRAG_TAG = "receiving_frag";
+
     private OnFragmentInteractionListener mListener;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -42,11 +44,11 @@ public class ListingFragment extends Fragment implements View.OnClickListener{
     private String emailAddress;
     private String skypeID;
 
-    private TextView tvFirstName;
-    private TextView tvLastName;
-    private TextView tvPhoneNumber;
-    private TextView tvEmailAddress;
-    private TextView tvSkypeID;
+    TextView tvFirstName;
+    TextView tvLastName;
+    TextView tvPhoneNumber;
+    TextView tvEmailAddress;
+    TextView tvSkypeID;
 
     public ListingFragment() {
         // Required empty public constructor
@@ -61,65 +63,78 @@ public class ListingFragment extends Fragment implements View.OnClickListener{
 //     * @return A new instance of fragment ListingFragment.
 //     */
     // TODONE: Rename and change types and number of parameters
-    public static ListingFragment newInstance(
-            String firstName,
-            String lastName,
-            String phoneNumber,
-            String emailAddress,
-            String skypeID){
-        ListingFragment fragment = new ListingFragment();
-        Bundle args = new Bundle();
-        args.putString(FIRST_NAME_PARAM, firstName);
-        args.putString(LAST_NAME_PARAM, lastName);
-        args.putString(PHONE_NUMBER_PARAM, phoneNumber);
-        args.putString(EMAIL_ADDRESS_PARAM, emailAddress);
-        args.putString(SKYPE_ID_PARAM, skypeID);
-        fragment.setArguments(args);
-        return fragment;
+    public static ListingFragment newInstance(){
+        ListingFragment listingFragment = new ListingFragment();
+        return listingFragment;
+//            String firstName,
+//            String lastName,
+//            String phoneNumber,
+//            String emailAddress,
+//            String skypeID){
+//        ListingFragment fragment = new ListingFragment();
+//        Bundle args = new Bundle();
+//        args.putString(FIRST_NAME_PARAM, firstName);
+//        args.putString(LAST_NAME_PARAM, lastName);
+//        args.putString(PHONE_NUMBER_PARAM, phoneNumber);
+//        args.putString(EMAIL_ADDRESS_PARAM, emailAddress);
+//        args.putString(SKYPE_ID_PARAM, skypeID);
+//        fragment.setArguments(args);
+//        return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate: " + this.toString());
-
-        //avoid a fragment from getting desroyed
-        setRetainInstance(true);
-
-        if(getArguments() != null){
-            firstName = getArguments().getString(FIRST_NAME_PARAM);
-            lastName = getArguments().getString(LAST_NAME_PARAM);
-            phoneNumber = getArguments().getString(PHONE_NUMBER_PARAM);
-            emailAddress= getArguments().getString(EMAIL_ADDRESS_PARAM);
-            skypeID = getArguments().getString(SKYPE_ID_PARAM);
-        }
-    }
-
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        Log.d(TAG, "onCreate: " + this.toString());
+//
+//        //avoid a fragment from getting desroyed
+//        setRetainInstance(true);
+//
+//        if(getArguments() != null){
+//            firstName = getArguments().getString(FIRST_NAME_PARAM);
+//            lastName = getArguments().getString(LAST_NAME_PARAM);
+//            phoneNumber = getArguments().getString(PHONE_NUMBER_PARAM);
+//            emailAddress= getArguments().getString(EMAIL_ADDRESS_PARAM);
+//            skypeID = getArguments().getString(SKYPE_ID_PARAM);
+//        }
+//    }
+//
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listing, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_listing, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         tvFirstName = view.findViewById(R.id.tvFirstName);
         tvLastName = view.findViewById(R.id.tvLastName);
         tvEmailAddress = view.findViewById(R.id.tvEmailAddress);
         tvPhoneNumber = view.findViewById(R.id.tvPhoneNumber);
         tvSkypeID = view.findViewById(R.id.tvSkypeID);
 
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+    public void receiveMessage(String firstName, String lastName, String phoneNumber, String emailAddress, String skypeID){
+        tvFirstName.setText(firstName);
+        tvLastName.setText(lastName);
+        tvPhoneNumber.setText(phoneNumber);
+        tvEmailAddress.setText(emailAddress);
+        tvSkypeID.setText(skypeID);
 
+    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//    }
+//
+//    // TODO: Rename method, update argument and hook method into UI event
+//    public void onButtonPressed(Uri uri) {
+//        if (mListener != null) {
+//            mListener.onFragmentInteraction(uri);
+//        }
+//    }
+//
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -130,38 +145,38 @@ public class ListingFragment extends Fragment implements View.OnClickListener{
         tvSkypeID.setText(skypeID);
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    public void onStart(){
-        super.onStart();
-        Log.d(TAG, "onStart: " + this.toString());
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
+//
+//    public void onStart(){
+//        super.onStart();
+//        Log.d(TAG, "onStart: " + this.toString());
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//    }
+//
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        mListener = null;
+//    }
 
     @Override
     public void onClick(View v) {
